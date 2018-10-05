@@ -33,3 +33,49 @@ $ platformio device monitor
 --- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---
 [CH11] 0052098066e893000000001c00003b42ee251500010056030000ffff030500c019e34591f9e5b10382b1d5826814d27ec80a7dbc095d7e53820ce3823baca73b69242724b5774690f972eb9e2baf64ad9c32b2ad (RSSI: -79) CRC OK
 ```
+
+## Message Format
+### Example:
+This example is a water meter reading from meter ID "028-0006326883" (Network ID = 1C, LAN ID = 608A63), which was relayed by meter ID "028-0012589224" (C018A8) to the hub, which is meter ID "028-0006744211" (66E893).
+```
+2018-10-05 05:12:22.145984 [CH15] 004c0100c018a88066e8931c280000005600000040000700330827000001020000000000011200608a63016200141d000000cebc0300040000020500000000080501000503010000000000008883 (RSSI: -74) CRC OK
+                                  AAAA  BBBBBBBBCCCCCCCCDD                                                    EEEEEEEE            FFFFFFFFGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGHHHH
+
+A - Message Length
+B - Source LAN ID
+C - Destination LAN ID
+D - Network ID
+E - Original Source LAN ID
+F - Current Water Meter Reading Value (in 10's of gallons)
+G - Water Usage by Hour (Each byte represents the usage for that hour, in 10's of gallons)
+H - CRC
+
+Current value: 52924
+
+Usage history:
+Date                 Usage (gallons)
+2018-10-05 04:00:00: 0
+2018-10-05 03:00:00: 0
+2018-10-05 02:00:00: 0
+2018-10-05 01:00:00: 0
+2018-10-05 00:00:00: 0
+2018-10-04 23:00:00: 0
+2018-10-04 22:00:00: 10
+2018-10-04 21:00:00: 30
+2018-10-04 20:00:00: 50
+2018-10-04 19:00:00: 0
+2018-10-04 18:00:00: 10
+2018-10-04 17:00:00: 50
+2018-10-04 16:00:00: 80
+2018-10-04 15:00:00: 0
+2018-10-04 14:00:00: 0
+2018-10-04 13:00:00: 0
+2018-10-04 12:00:00: 0
+2018-10-04 11:00:00: 50
+2018-10-04 10:00:00: 20
+2018-10-04 09:00:00: 0
+2018-10-04 08:00:00: 0
+2018-10-04 07:00:00: 40
+2018-10-04 06:00:00: 0
+2018-10-04 05:00:00: 30
+```
