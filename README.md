@@ -2,7 +2,7 @@
 Elster EngergyAxis Receiver using PlatformIO/Arduino with the Adafruit Feather M0 RFM69
 
 ## History
-I've been using this code to monitor my water meter readings for about a year. I had been sitting on the code in hopes to clean it up before publishing to Github, but rather than continuing to procrastinate, I've decided to publish it as-is in the hopes that it might help someone else.
+I've been using this code to monitor my water meter readings for about a year. I had been sitting on the code, planning to clean it up before publishing to Github, but rather than continuing to procrastinate, I've decided to publish it as-is in the hopes that it might help someone else.
 
 This project came after I had worked on ea_receiver for a while, and decided that it would be better to use a single low powered device than multiple rtlsdr dongles and lots of CPU power. The Adafruit Feather series devices are great, and I've found the RFM69 easy to work with.
 
@@ -20,7 +20,7 @@ To upload the resulting binary to your device:
 `platformio run -t upload`
 
 ## Running
-Once the binary has been uploaded to your device, it will start running. The messages it receives will be sent on the serial port at 921600 baud. To monitor for messages, you can use PslatformIO:
+Once the binary has been uploaded to your device, it will start running. The messages it receives will be sent on the serial port at 921600 baud. To monitor for messages, you can use PlatformIO:
 
 `platformio device monitor`
 
