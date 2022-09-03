@@ -19,6 +19,11 @@ To upload the resulting binary to your device:
 
 `platformio run -t upload`
 
+## Hardware
+A 3" piece of wire soldered to the antenna pin works great on this board.
+
+**Important Note** this code makes use of an interrupt handler from the rfm69 to the m0 to indicate when a message has been received.  This isn't wired up by default on the board, so you need to solder a jumper wire between A1 and IO1
+
 ## Running
 Once the binary has been uploaded to your device, it will start running. The messages it receives will be sent on the serial port at 921600 baud. To monitor for messages, you can use PlatformIO:
 
